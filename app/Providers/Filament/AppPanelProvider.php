@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\Team;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -24,6 +25,7 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->tenant(Team::class)
             ->id('app')
             ->path('/')
             ->login()
