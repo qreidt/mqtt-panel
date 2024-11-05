@@ -20,4 +20,9 @@ class Team extends Model
         return $this->belongsToMany(User::class, UserTeams::class)
             ->withTimestamps();
     }
+
+    public function endpoints(): HasMany
+    {
+        return $this->hasMany(Endpoint::class);
+    }
 }
