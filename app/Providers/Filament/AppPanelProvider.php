@@ -26,7 +26,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->id('app')
             ->default()
-            ->path('/')
+            ->path('/app')
             ->tenant(Team::class)
             ->broadcasting()
             ->login()
