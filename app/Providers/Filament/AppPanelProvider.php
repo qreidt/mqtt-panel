@@ -24,10 +24,11 @@ class AppPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->tenant(Team::class)
             ->id('app')
+            ->default()
             ->path('/')
+            ->tenant(Team::class)
+            ->broadcasting()
             ->login()
             ->colors([
                 'primary' => Color::Amber,
