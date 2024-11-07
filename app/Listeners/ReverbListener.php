@@ -2,11 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\MqttPacketReceived;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mqtt\Events\MqttPacketReceived;
+use App\Mqtt\Events\PusherMqttEvent;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Broadcast;
-use Illuminate\Support\Facades\Log;
 use Laravel\Reverb\Events\MessageReceived;
 
 class ReverbListener
@@ -33,7 +32,7 @@ class ReverbListener
             return;
         }
 
-        Broadcast::event(new MqttPacketReceived($message['data']));
+        Broadcast::event(new PusherMqttEvent($message['event'], $message['data']));
     }
 
     protected function isMqttMessage(array $message): bool

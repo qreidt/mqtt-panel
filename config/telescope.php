@@ -154,7 +154,10 @@ return [
 
         Watchers\EventWatcher::class => [
             'enabled' => env('TELESCOPE_EVENT_WATCHER', true),
-            'ignore' => [],
+            'ignore' => [
+                \Laravel\Reverb\Events\MessageSent::class,
+                \Laravel\Reverb\Events\MessageReceived::class,
+            ],
         ],
 
         Watchers\ExceptionWatcher::class => env('TELESCOPE_EXCEPTION_WATCHER', true),
