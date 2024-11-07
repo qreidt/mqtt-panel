@@ -82,7 +82,7 @@ return [
                 ],
                 'allowed_origins' => ['*'],
                 'ping_interval' => env('REVERB_APP_PING_INTERVAL', 300),
-                'activity_timeout' => env('REVERB_APP_ACTIVITY_TIMEOUT', 6000),
+                'activity_timeout' => env('REVERB_APP_ACTIVITY_TIMEOUT', 6000   ),
                 'max_message_size' => env('REVERB_APP_MAX_MESSAGE_SIZE', 10_000),
             ],
         ],
