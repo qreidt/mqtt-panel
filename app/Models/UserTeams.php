@@ -11,6 +11,8 @@ class UserTeams extends Pivot
 {
     use SoftDeletes;
 
+    protected $table = 'user_team';
+
     protected $fillable = [
         'user_id', 'team_id'
     ];
