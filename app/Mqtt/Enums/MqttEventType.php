@@ -2,7 +2,7 @@
 
 namespace App\Mqtt\Enums;
 
-enum MqttEvent: string
+enum MqttEventType: string
 {
     case MqttPacketProcessed = "MqttPacketProcessed";
     case MqttClientConnected = "MqttClientConnected";

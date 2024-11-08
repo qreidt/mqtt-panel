@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Mqtt\Enums\MqttEvent;
+use App\Mqtt\Enums\MqttEventType;
 use App\Mqtt\Events\PusherMqttEvent;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Broadcast;
@@ -33,7 +33,7 @@ class ReverbListener
         }
 
         Broadcast::event(new PusherMqttEvent(
-            type: MqttEvent::from($message['event']),
+            type: MqttEventType::from($message['event']),
             data: $message['data'])
         );
     }
@@ -53,7 +53,7 @@ class ReverbListener
             return false;
         }
 
-        if (! MqttEvent::tryFrom($message['event'])) {
+        if (! MqttEventType::tryFrom($message['event'])) {
             return false;
         }
 

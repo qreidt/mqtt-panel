@@ -2,7 +2,8 @@
 
 namespace App\Mqtt\Listeners;
 
-use App\Mqtt\Enums\MqttEvent;
+use App\Mqtt\Enums\MqttEventType;
+use App\Mqtt\Events\MqttClientConnectedEvent;
 use App\Mqtt\Events\MqttPacketProcessedEvent;
 use App\Mqtt\Events\ProcessableMqttEvent;
 use App\Mqtt\Events\PusherMqttEvent;
@@ -32,18 +33,25 @@ class MqttEventsListener implements ShouldQueue
 
             $processable_mqtt_event->persist();
         } catch (ValidationException|\Exception $exception) {
+            Log::error($exception->getMessage());
             report($exception);
         }
     }
 
     /**
-     * @param MqttEvent $event_type
+     * @param MqttEventType $event_type
      * @return ProcessableMqttEvent|string
      */
-    private function selectMqttEvent(MqttEvent $event_type): ProcessableMqttEvent|string
+    private function selectMqttEvent(MqttEventType $event_type): ProcessableMqttEvent|string
     {
         switch ($event_type) {
-            case MqttEvent::MqttPacketProcessed: return MqttPacketProcessedEvent::class;
+            case MqttEventType::MqttPacketProcessed: return MqttPacketProcessedEvent::class;
+            case MqttEventType::MqttClientConnected: return MqttClientConnectedEvent::class;
+            case MqttEventType::MqttClientDisconnected:
+            case MqttEventType::MqttClientSubscribed:
+            case MqttEventType::MqttClientUnsubscribed:
+            case MqttEventType::MqttClientPublished:
+                throw new \Exception('To be implemented');
 
             default:
                 report(new \Exception("Unhandled Pusher MQTT Event [$event_type->value]"));

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 
 class MqttPacketProcessedEvent implements ProcessableMqttEvent
 {
-    use Dispatchable;
 
     public function __construct(
         public string $client_id,

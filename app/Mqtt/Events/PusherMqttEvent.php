@@ -2,7 +2,7 @@
 
 namespace App\Mqtt\Events;
 
-use App\Mqtt\Enums\MqttEvent;
+use App\Mqtt\Enums\MqttEventType;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -14,8 +14,8 @@ class PusherMqttEvent
      * Create a new event instance.
      */
     public function __construct(
-        public MqttEvent $type,
-        public array $data
+        public MqttEventType $type,
+        public array         $data
     )
     {
         //
