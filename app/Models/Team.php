@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mqtt\Models as MqttModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -24,5 +25,10 @@ class Team extends Model
     public function endpoints(): HasMany
     {
         return $this->hasMany(Endpoint::class);
+    }
+
+    public function mqttClients(): HasMany
+    {
+        return $this->hasMany(MqttModels\MqttClient::class);
     }
 }
