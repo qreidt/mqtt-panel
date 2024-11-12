@@ -38,6 +38,7 @@ class MqttClientResource extends Resource
                 Tables\Columns\TextColumn::make('mqtt_id')
                     ->label('MQTT Client ID'),
             ])
+            ->recordUrl(fn($record) => Pages\ShowMqttClient::getUrl(compact('record')))
             ->filters([
                 //
             ])
@@ -62,8 +63,7 @@ class MqttClientResource extends Resource
     {
         return [
             'index' => Pages\ListMqttClients::route('/'),
-            'create' => Pages\CreateMqttClient::route('/create'),
-            'edit' => Pages\EditMqttClient::route('/{record}/edit'),
+            'show' => Pages\ShowMqttClient::route('/{record}'),
         ];
     }
 }
