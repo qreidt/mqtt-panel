@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\MqttClientResource\Pages;
+namespace App\Filament\Resources\Mqtt\MqttClientResource\Pages;
 
-use App\Filament\Resources\MqttClientResource;
+use App\Filament\Resources\Mqtt\MqttClientResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
 use Filament\Resources\Pages\ViewRecord;
-use Filament\Tables\Concerns\InteractsWithTable;
-use Filament\Tables\Contracts\HasTable;
-use Filament\Tables\Table;
 
 class ShowMqttClient extends ViewRecord
 {

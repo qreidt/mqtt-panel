@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Mqtt;
 
 use App\Filament\Resources\EndpointResource\Pages;
 use App\Filament\Resources\EndpointResource\RelationManagers;
+use App\Filament\Resources\Mqtt;
 use App\Models\Endpoint;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -70,7 +71,7 @@ class EndpointResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListEndpoints::route('/'),
+            'index' => Mqtt\EndpointResource\Pages\ListEndpoints::route('/'),
         ];
     }
 
