@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Mqtt;
 
+use App\Filament\Resources\Mqtt;
 use App\Filament\Resources\MqttClientResource\Pages;
 use App\Mqtt\Models\MqttClient;
 use Filament\Forms;
@@ -38,7 +39,7 @@ class MqttClientResource extends Resource
                 Tables\Columns\TextColumn::make('mqtt_id')
                     ->label('MQTT Client ID'),
             ])
-            ->recordUrl(fn($record) => Pages\ShowMqttClient::getUrl(compact('record')))
+            ->recordUrl(fn($record) => Mqtt\MqttClientResource\Pages\ShowMqttClient::getUrl(compact('record')))
             ->filters([
                 //
             ])
@@ -62,8 +63,8 @@ class MqttClientResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMqttClients::route('/'),
-            'show' => Pages\ShowMqttClient::route('/{record}'),
+            'index' => Mqtt\MqttClientResource\Pages\ListMqttClients::route('/'),
+            'show' => Mqtt\MqttClientResource\Pages\ShowMqttClient::route('/{record}'),
         ];
     }
 }

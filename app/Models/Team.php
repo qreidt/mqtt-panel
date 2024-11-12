@@ -31,4 +31,9 @@ class Team extends Model
     {
         return $this->hasMany(MqttModels\MqttClient::class);
     }
+
+    public function apiTokens(): HasMany
+    {
+        return $this->hasMany(ApiToken::class);
+    }
 }

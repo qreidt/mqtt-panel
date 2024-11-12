@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\EndpointResource\Pages;
+namespace App\Filament\Resources\Mqtt\EndpointResource\Pages;
 
-use App\Filament\Resources\EndpointResource;
+use App\Filament\Resources\Mqtt\EndpointResource;
 use Filament\Actions;
 use Filament\Facades\Filament;
 use Filament\Resources\Pages\ListRecords;

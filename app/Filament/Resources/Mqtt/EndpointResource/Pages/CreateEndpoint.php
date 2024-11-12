@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\EndpointResource\Pages;
+namespace App\Filament\Resources\Mqtt\EndpointResource\Pages;
 
-use App\Filament\Resources\EndpointResource;
-use Filament\Actions;
+use App\Filament\Resources\Mqtt\EndpointResource;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateEndpoint extends CreateRecord
